@@ -13,13 +13,13 @@ export function ProtectedRoute({ children }: ProtectedRouteProps) {
   const router = useRouter();
 
   useEffect(() => {
-    // Wait
+    
     if (!isLoading && !user) {
       router.push('/auth');
     }
   }, [user, isLoading, router]);
 
-  if (isLoading) return null; // optional: add a spinner here
+  if (isLoading) return null; 
   if (!user) return null;
 
   return <>{children}</>;

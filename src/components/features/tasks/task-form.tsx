@@ -38,7 +38,8 @@ export function TaskForm({ task, onSubmit, loading }: TaskFormProps) {
     resolver: zodResolver(taskSchema),
     defaultValues: {
       title: task?.title || '',
-      type: task?.type || 'work',
+      type: (task?.type as 'work' | 'personal' | 'urgent' | 'low-priority') || 'work',
+
       endDate: task?.endDate ? format(new Date(task.endDate), 'yyyy-MM-dd') : '',
     },
   });
